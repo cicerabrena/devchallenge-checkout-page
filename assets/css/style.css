@@ -80,15 +80,30 @@ main .information .section .container-input .input-group span {
   color: var(--border-color);
   z-index: 1;
 }
-main .information .section .container-input .input-group input, main .information .section .container-input .input-group select {
+main .information .section .container-input .input-group input,
+main .information .section .container-input .input-group select {
   width: 100%;
   border: 1px solid var(--border-color);
   border-radius: var(--border-radius);
   padding: var(--padding);
   font-family: "Montserrat", sans-serif;
 }
+main .information .section .container-input .input-group input:focus:valid, main .information .section .container-input .input-group input:required:focus:valid, main .information .section .container-input .input-group input:required:valid,
+main .information .section .container-input .input-group select:focus:valid,
+main .information .section .container-input .input-group select:required:focus:valid,
+main .information .section .container-input .input-group select:required:valid {
+  border: 0.13rem solid lightgreen;
+}
+main .information .section .container-input .input-group input:focus:invalid, main .information .section .container-input .input-group input:required:focus:invalid,
+main .information .section .container-input .input-group select:focus:invalid,
+main .information .section .container-input .input-group select:required:focus:invalid {
+  border: 0.13rem solid lightcoral;
+}
 main .information .section .container-input .input-group input {
   font-size: 1rem;
+  background-color: transparent;
+  transition: border-color 0.2s ease-out;
+  outline: none;
 }
 main .information .section .container-input .input-group input::placeholder {
   font-size: 0.8rem;
@@ -103,14 +118,11 @@ main .information .section .container-input .input-group .custom-select select {
   background: white;
   outline: none;
 }
-main .information .section .container-input .input-group .custom-select select option .selected {
-  color: #828282;
-}
 main .information .section .container-input .input-group .custom-select span {
   right: 10px;
   left: unset;
   position: absolute;
-  background: #E0E0E0;
+  background: #e0e0e0;
   border-radius: 4px;
   pointer-events: none;
 }
@@ -190,10 +202,11 @@ main .cart .itens .item .info .input-number span {
 main .cart .itens .item .info .input-number input {
   width: 60px;
   background-color: transparent;
-  border: none;
-  text-align: center;
   font-family: "Montserrat", sans-serif;
   font-size: 1.5rem;
+  text-align: center;
+  border: none;
+  outline: none;
 }
 main .cart .total {
   font-size: 1.2rem;

@@ -95,19 +95,31 @@ main {
             z-index: 1;
           }
 
-          input, select {
+          input,
+          select {
             width: 100%;
             border: 1px solid var(--border-color);
             border-radius: var(--border-radius);
             padding: var(--padding);
-            font-family: 'Montserrat', sans-serif;
+            font-family: "Montserrat", sans-serif;
+
+            &:focus:valid, &:required:focus:valid, &:required:valid {
+              border: .13rem solid lightgreen;             
+            }
+
+            &:focus:invalid, &:required:focus:invalid{
+              border: .13rem solid lightcoral;
+            }
           }
 
           input {
             font-size: 1rem;
+            background-color: transparent;
+            transition: border-color 0.2s ease-out;
+            outline: none;
 
             &::placeholder {
-              font-size: .8rem;
+              font-size: 0.8rem;
             }
           }
 
@@ -120,19 +132,13 @@ main {
               appearance: none;
               background: white;
               outline: none;
-           
-              option {
-                .selected {
-                  color: #828282;
-                }
-              }
             }
-            
+
             span {
               right: 10px;
               left: unset;
               position: absolute;
-              background: #E0E0E0;
+              background: #e0e0e0;
               border-radius: 4px;
               pointer-events: none;
             }
@@ -229,11 +235,13 @@ main {
             input {
               width: 60px;
               background-color: transparent;
-              border: none;
-              text-align: center;
-
+              
               font-family: "Montserrat", sans-serif;
               font-size: 1.5rem;
+              text-align: center;
+              
+              border: none;
+              outline: none;
             }
           }
         }
