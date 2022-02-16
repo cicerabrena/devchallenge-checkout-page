@@ -6,12 +6,12 @@
 }
 
 body {
+  height: calc(100vh - calc(100vh - 100%));
+
   display: flex;
   flex-direction: column;
-  // justify-content: center;
+  justify-content: center;
   align-items: center;
-
-  padding: 2rem 1rem;
 
   font-family: "Montserrat", sans-serif;
   font-weight: 600;
@@ -19,11 +19,21 @@ body {
 }
 
 main {
-  flex: 1;
+  padding: 2rem 1rem 0 1rem;
 
   h1 {
-    font-size: 2.3rem;
+    font-size: 1.8rem;
     color: #4e5150;
+  }
+
+  form {
+    display: flex;
+    flex-direction: column;
+
+    @media (min-width: 900px) {
+      flex-direction: row-reverse;
+      margin-top: 1rem;
+    }
   }
 
   .information {
@@ -56,6 +66,7 @@ main {
         }
 
         &.checkbox-input {
+          margin-top: 1.5rem;
           flex-direction: row-reverse;
           justify-content: start;
 
@@ -103,12 +114,15 @@ main {
             padding: var(--padding);
             font-family: "Montserrat", sans-serif;
 
-            &:focus:valid, &:required:focus:valid, &:required:valid {
-              border: .13rem solid lightgreen;             
+            &:focus:valid,
+            &:required:focus:valid,
+            &:required:valid {
+              border: 0.13rem solid lightgreen;
             }
 
-            &:focus:invalid, &:required:focus:invalid{
-              border: .13rem solid lightcoral;
+            &:focus:invalid,
+            &:required:focus:invalid {
+              border: 0.13rem solid lightcoral;
             }
           }
 
@@ -121,12 +135,17 @@ main {
             &::placeholder {
               font-size: 0.8rem;
             }
+
+            &:-webkit-autofill {
+              box-shadow: 0 0 0 30px white inset;
+            }
           }
 
           .custom-select {
             width: 100%;
 
             select {
+              height: 52px;
               -webkit-appearance: none;
               -moz-appearance: none;
               appearance: none;
@@ -160,14 +179,63 @@ main {
           color: white;
         }
       }
+
+      @media (min-width: 900px) {
+        margin-bottom: 3rem;
+        h3 {
+          font-size: 1rem;
+        }
+        .container-input {
+          .input-group {
+            span {
+              top: 18px;
+            }
+
+            input,
+            select {
+              &:focus:valid,
+              &:required:focus:valid,
+              &:required:valid {
+                border: 0.2rem solid lightgreen;
+              }
+
+              &:focus:invalid,
+              &:required:focus:invalid {
+                border: 0.2rem solid lightcoral;
+              }
+            }
+
+            input {
+              --padding: 0.9rem 2.4rem;
+
+              &::placeholder {
+                font-size: 0.9rem;
+              }
+            }
+          }
+
+          &.checkbox-input {
+            align-items: center;
+            input[type="checkbox"] {
+              width: 20px;
+              height: 20px;
+            }
+            label {
+              margin-bottom: 0;
+            }
+          }
+        }
+      }
     }
   }
 
   .cart {
+    max-width: 340px;
     display: flex;
     flex-direction: column;
     padding: 2rem 2rem 1rem 2rem;
     margin-top: 1.5rem;
+    margin-bottom: 1rem;
     border-radius: 1rem;
 
     background-color: #f2f2f2;
@@ -179,7 +247,7 @@ main {
       .item {
         display: flex;
         flex-direction: row;
-        margin-bottom: 2rem;
+        margin-bottom: 1.5rem;
 
         img {
           max-width: 40%;
@@ -192,80 +260,135 @@ main {
           justify-content: space-between;
           margin-left: 1.4rem;
 
-          p {
-            font-size: 1rem;
-          }
+          .texts {
+            display: flex;
+            flex-direction: column;
 
-          div {
-            margin-top: 0.7rem;
-
-            h2 {
-              display: inline;
-              font-size: 1.2rem;
-              color: #f2994a;
+            p {
+              font-size: 1rem;
             }
 
-            small {
-              margin-left: 1rem;
-              text-decoration: line-through;
+            div {
+              margin-top: 0.7rem;
+
+              h2 {
+                display: inline;
+                font-size: 0.9rem;
+                color: #f2994a;
+              }
+
+              small {
+                margin-left: 1rem;
+                font-size: 0.6rem;
+                text-decoration: line-through;
+              }
             }
           }
 
           .input-number {
-            width: 130px;
+            width: 100px;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            margin-top: 3rem;
+            margin-top: 2rem;
             padding: 0.9rem 1rem;
 
             border: 1px solid #828282;
             border-radius: 15px;
 
-            font-size: 1.7rem;
             text-align: center;
             color: #333333;
 
             span {
               border-radius: 5px;
               background-color: #e0e0e0;
+              font-size: 1rem;
               color: #828282;
+              cursor: pointer;
             }
 
             input {
               width: 60px;
               background-color: transparent;
-              
+
               font-family: "Montserrat", sans-serif;
-              font-size: 1.5rem;
+              font-size: 1rem;
               text-align: center;
-              
+
               border: none;
               outline: none;
             }
+          }
+        }
+
+        @media (min-width: 768px) and (max-width: 900px) {
+          img {
+            max-width: 30%;
           }
         }
       }
     }
 
     .total {
-      font-size: 1.2rem;
-
       .item {
         display: flex;
         justify-content: space-between;
-        padding: 1rem 0;
+        padding: 0.5rem 0;
         border-top: 1px solid #bdbdbd;
+
+        .value {
+          font-size: 0.9rem;
+        }
+
+        &:nth-child(2) {
+          p {
+            margin-top: 0.5rem;
+          }
+        }
+      }
+    }
+
+    @media (min-width: 768px) and (max-width: 900px) {
+      max-width: 100%;
+    }
+
+    @media (min-width: 900px) {
+      align-self: flex-start;
+      margin-left: 6rem;
+
+      .itens {
+        .item {
+          img {
+            height: 20%;
+          }
+
+          .info {
+            .input-number {
+              width: 105px;
+              margin-top: 2rem;
+
+              input {
+                font-size: 1rem;
+              }
+            }
+
+            div {
+              h2 {
+                font-size: 0.9rem;
+              }
+              small {
+                font-size: 0.75rem;
+              }
+            }
+          }
+        }
       }
     }
   }
 }
 
 footer {
-  flex: 1;
-  // position: absolute;
-  // bottom: 20px;
-  height: 20px;
+  margin-bottom: 1rem;
 
   font-weight: 700;
   color: #bdbdbd;
