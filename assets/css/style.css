@@ -14,6 +14,11 @@ body {
   font-weight: 600;
   color: #333333;
 }
+@media (min-width: 968px) {
+  body {
+    height: 100vh;
+  }
+}
 
 main {
   padding: 2rem 1rem 0 1rem;
@@ -22,11 +27,16 @@ main h1 {
   font-size: 1.8rem;
   color: #4e5150;
 }
+@media (min-width: 968px) {
+  main h1 {
+    font-size: 2.5rem;
+  }
+}
 main form {
   display: flex;
   flex-direction: column;
 }
-@media (min-width: 900px) {
+@media (min-width: 968px) {
   main form {
     flex-direction: row-reverse;
     margin-top: 1rem;
@@ -70,7 +80,12 @@ main .information .section .container-input.checkbox-input input[type=checkbox] 
 }
 main .information .section .container-input label {
   margin-bottom: 0.4rem;
-  font-size: 0.7rem;
+  font-size: 0.625rem;
+}
+@media (min-width: 968px) {
+  main .information .section .container-input label {
+    font-size: 0.75rem;
+  }
 }
 main .information .section .container-input div {
   position: relative;
@@ -99,6 +114,7 @@ main .information .section .container-input .input-group select {
   border-radius: var(--border-radius);
   padding: var(--padding);
   font-family: "Montserrat", sans-serif;
+  font-size: 0.75rem;
 }
 main .information .section .container-input .input-group input:focus:valid, main .information .section .container-input .input-group input:required:focus:valid, main .information .section .container-input .input-group input:required:valid,
 main .information .section .container-input .input-group select:focus:valid,
@@ -111,28 +127,48 @@ main .information .section .container-input .input-group select:focus:invalid,
 main .information .section .container-input .input-group select:required:focus:invalid {
   border: 0.13rem solid lightcoral;
 }
+@media (min-width: 968px) {
+  main .information .section .container-input .input-group input,
+main .information .section .container-input .input-group select {
+    font-size: 1rem;
+  }
+}
 main .information .section .container-input .input-group input {
-  font-size: 1rem;
+  font-size: 0.75rem;
   background-color: transparent;
   transition: border-color 0.2s ease-out;
   outline: none;
+  text-overflow: ellipsis;
 }
 main .information .section .container-input .input-group input::placeholder {
-  font-size: 0.8rem;
+  font-size: 0.75rem;
 }
 main .information .section .container-input .input-group input:-webkit-autofill {
   box-shadow: 0 0 0 30px white inset;
+}
+@media (min-width: 968px) {
+  main .information .section .container-input .input-group input {
+    font-size: 1rem;
+  }
+  main .information .section .container-input .input-group input::placeholder {
+    font-size: 1rem;
+  }
 }
 main .information .section .container-input .input-group .custom-select {
   width: 100%;
 }
 main .information .section .container-input .input-group .custom-select select {
-  height: 52px;
+  height: 40px;
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
   background: white;
   outline: none;
+}
+@media (min-width: 968px) {
+  main .information .section .container-input .input-group .custom-select select {
+    height: 51px;
+  }
 }
 main .information .section .container-input .input-group .custom-select span {
   right: 10px;
@@ -155,7 +191,7 @@ main .information .section .container-button button {
   font-family: "Montserrat", sans-serif;
   color: white;
 }
-@media (min-width: 900px) {
+@media (min-width: 968px) {
   main .information .section {
     margin-bottom: 3rem;
   }
@@ -163,7 +199,7 @@ main .information .section .container-button button {
     font-size: 1rem;
   }
   main .information .section .container-input .input-group span {
-    top: 18px;
+    top: 15px;
   }
   main .information .section .container-input .input-group input:focus:valid, main .information .section .container-input .input-group input:required:focus:valid, main .information .section .container-input .input-group input:required:valid,
 main .information .section .container-input .input-group select:focus:valid,
@@ -292,7 +328,7 @@ main .cart .total .item:nth-child(2) p {
     max-width: 100%;
   }
 }
-@media (min-width: 900px) {
+@media (min-width: 968px) {
   main .cart {
     align-self: flex-start;
     margin-left: 6rem;
@@ -316,8 +352,11 @@ main .cart .total .item:nth-child(2) p {
 }
 
 footer {
+  min-height: 20px;
+  margin-top: auto;
   margin-bottom: 1rem;
   font-weight: 700;
+  font-size: 0.875rem;
   color: #bdbdbd;
 }
 footer a {

@@ -16,6 +16,10 @@ body {
   font-family: "Montserrat", sans-serif;
   font-weight: 600;
   color: #333333;
+
+  @media (min-width: 968px) {
+    height: 100vh;
+  }
 }
 
 main {
@@ -24,13 +28,17 @@ main {
   h1 {
     font-size: 1.8rem;
     color: #4e5150;
+
+    @media (min-width: 968px) {
+      font-size: 2.5rem;
+    }
   }
 
   form {
     display: flex;
     flex-direction: column;
 
-    @media (min-width: 900px) {
+    @media (min-width: 968px) {
       flex-direction: row-reverse;
       margin-top: 1rem;
     }
@@ -81,7 +89,11 @@ main {
 
         label {
           margin-bottom: 0.4rem;
-          font-size: 0.7rem;
+          font-size: 0.625rem;
+
+          @media (min-width: 968px) {
+            font-size: 0.75rem;
+          }
         }
         div {
           position: relative;
@@ -113,6 +125,7 @@ main {
             border-radius: var(--border-radius);
             padding: var(--padding);
             font-family: "Montserrat", sans-serif;
+            font-size: 0.75rem;
 
             &:focus:valid,
             &:required:focus:valid,
@@ -124,20 +137,33 @@ main {
             &:required:focus:invalid {
               border: 0.13rem solid lightcoral;
             }
+
+            @media (min-width: 968px) {
+              font-size: 1rem;
+            }
           }
 
           input {
-            font-size: 1rem;
+            font-size: 0.75rem;
             background-color: transparent;
             transition: border-color 0.2s ease-out;
             outline: none;
+            text-overflow: ellipsis;
 
             &::placeholder {
-              font-size: 0.8rem;
+              font-size: 0.75rem;
             }
 
             &:-webkit-autofill {
               box-shadow: 0 0 0 30px white inset;
+            }
+
+            @media (min-width: 968px) {
+              font-size: 1rem;
+
+              &::placeholder {
+                font-size: 1rem;
+              }
             }
           }
 
@@ -145,12 +171,16 @@ main {
             width: 100%;
 
             select {
-              height: 52px;
+              height: 40px; 
               -webkit-appearance: none;
               -moz-appearance: none;
               appearance: none;
               background: white;
               outline: none;
+
+              @media (min-width: 968px) {
+                height: 51px;
+              }
             }
 
             span {
@@ -180,7 +210,7 @@ main {
         }
       }
 
-      @media (min-width: 900px) {
+      @media (min-width: 968px) {
         margin-bottom: 3rem;
         h3 {
           font-size: 1rem;
@@ -188,7 +218,7 @@ main {
         .container-input {
           .input-group {
             span {
-              top: 18px;
+              top: 15px;
             }
 
             input,
@@ -352,7 +382,7 @@ main {
       max-width: 100%;
     }
 
-    @media (min-width: 900px) {
+    @media (min-width: 968px) {
       align-self: flex-start;
       margin-left: 6rem;
 
@@ -388,9 +418,12 @@ main {
 }
 
 footer {
+  min-height: 20px;
+  margin-top: auto;
   margin-bottom: 1rem;
-
+  
   font-weight: 700;
+  font-size: 0.875rem;
   color: #bdbdbd;
 
   a {
